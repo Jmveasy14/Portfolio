@@ -2,60 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Joshua Veasy | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joshua Veasy Portfolio</title>
   <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <h1 class="logo">Joshua Veasy</h1>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <!-- Loader -->
+  <div id="loader">
+    <h1 class="loader-title">Joshua Veasy</h1>
+    <p class="loader-subtitle">Loading Portfolio...</p>
+  </div>
+
+  <!-- Background Bubbles -->
+  <div class="background">
+    <canvas id="bubbleCanvas"></canvas>
+  </div>
+
+  <!-- Main Content -->
+  <header class="header">
+    <img src="Josh.jpg" alt="Joshua Veasy" class="profile-img">
+    <h1>Hello, I'm Joshua Veasy</h1>
+    <p>Computer Science Student | Developer | Engineer</p>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>About Me</h2>
+      <p>I'm a junior Computer Science major passionate about building clean, efficient, and user-friendly digital experiences. Recently, I worked on an app called Spotsy that uses APIs like Google Maps and Gemini to recommend entertainment near you.</p>
+    </section>
+
+    <section class="section">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Spotsy:</strong> Maps & Entertainment API Integration</li>
+        <li><strong>Graduation Album Art Recreation:</strong> Built using p5.js</li>
+        <li><strong>Personal Website:</strong> Custom animations, clean UI</li>
       </ul>
-    </div>
-  </nav>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <img src="Josh.jpg" alt="Joshua Veasy" class="profile-pic">
-    <h2><span id="typing-text"></span></h2>
-    <p>Computer Science Major | Software Developer | Tech Enthusiast</p>
-    <a href="#projects" class="btn">View My Work</a>
-  </section>
+    <section class="section">
+      <h2>Skills</h2>
+      <ul>
+        <li>Languages: Java, JavaScript, Python</li>
+        <li>Frameworks: Node.js, Express</li>
+        <li>Tools: Git, GitHub, VS Code, Eclipse</li>
+      </ul>
+    </section>
+  </main>
 
-  <!-- About Section -->
-  <section id="about" class="section hidden parallax">
-    <h2>About Me</h2>
-    <p>I’m Joshua Veasy, a Computer Science major at Howard University. I'm passionate about building software solutions and leveraging APIs to create powerful applications. Outside of coding, I enjoy music, sports, and helping others.</p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section hidden parallax">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Spotsy App</h3>
-      <p>Developed during Google Tech Exchange, Spotsy uses Gemini and BigQuery APIs to recommend entertainment spots near you, similar to Google Maps. I worked on the entertainment page and learned how to integrate powerful APIs into applications.</p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section hidden parallax">
-    <h2>Contact Me</h2>
-    <p>Interested in working together? Let's connect!</p>
-    <a href="mailto:your.email@example.com" class="btn">Email Me</a>
-  </section>
-
-  <footer>
-    <p>© 2025 Joshua Veasy. All rights reserved.</p>
-  </footer>
-
-<script src="portfolio.js"></script>
-<!-- Smooth Scroll to Top Button -->
-<button id="scrollToTopBtn" title="Go to top">↑</button>
+  <script src="portfolio.js"></script>
 </body>
 </html>
