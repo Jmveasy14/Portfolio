@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
     }, 1000);
   });
   
-  // Bubbles Animation
+  // Bubbles Animation with gradient
   const canvas = document.getElementById('bubbleCanvas');
   const ctx = canvas.getContext('2d');
   let bubbles = [];
@@ -26,7 +26,7 @@ window.addEventListener('load', function() {
         y: Math.random() * canvas.height,
         r: Math.random() * 10 + 5,
         d: Math.random() * 2,
-        color: `rgba(255, 255, 255, ${Math.random()})`
+        color: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.5)`
       });
     }
   }
