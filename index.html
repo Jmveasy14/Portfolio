@@ -1,66 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joshua Veasy Portfolio</title>
-  <link rel="stylesheet" href="portfolio.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joshua Veasy's Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Loader -->
-  <div id="loader">
-    <h1 class="loader-title">Joshua Veasy</h1>
-    <p class="loader-subtitle">Loading Portfolio...</p>
-  </div>
-
-  <!-- Background Bubbles -->
-  <div class="background">
-    <canvas id="bubbleCanvas"></canvas>
-  </div>
-
-  <!-- Header Section -->
-  <header class="header">
-    <img src="Josh.jpg" alt="Joshua Veasy" class="profile-img">
-    <h1>Hello, I'm Joshua Veasy</h1>
-    <p>Computer Science Student | Developer | Engineer</p>
+  <header class="fade-in">
+    <img src="Josh.jpg" alt="Joshua Veasy" class="profile-pic" />
+    <h1>Joshua Veasy</h1>
+    <p>Computer Science Major @ Howard University | Software Developer | Tech Exchange Alum | Musician</p>
   </header>
 
-  <!-- Main Content -->
-  <main class="container">
-    <section class="section about">
+  <main>
+    <section class="fade-in delay-1">
       <h2>About Me</h2>
-      <p>I'm a junior Computer Science major passionate about building clean, efficient, and user-friendly digital experiences. Recently, I worked on an app called Spotsy that uses APIs like Google Maps and Gemini to recommend entertainment near you.</p>
+      <p>I’m a junior studying Computer Science at Howard University. As a TechExchange alum, member of NSBE and CodeHouse, and a volunteer at the Nashville Food Bank, I bring both technical skills and a drive to help others. My interests include software development, music, and exploring the intersections of tech and creativity.</p>
     </section>
 
-    <section class="section projects">
+    <section class="fade-in delay-2">
       <h2>Projects</h2>
-      <div class="project-card">
+      <div class="card">
         <h3>Spotsy</h3>
-        <p>Maps & Entertainment API Integration</p>
-        <a href="https://github.com/your-username/spotsy" target="_blank">View Project</a>
-      </div>
-      <div class="project-card">
-        <h3>Graduation Album Art</h3>
-        <p>Recreated using p5.js</p>
-        <a href="https://github.com/your-username/album-art" target="_blank">View Project</a>
-      </div>
-      <div class="project-card">
-        <h3>Personal Website</h3>
-        <p>Custom animations, clean UI</p>
-        <a href="https://your-website.com" target="_blank">View Project</a>
+        <p>An app that recommends entertainment and activities near your location, built using the Gemini and BigQuery APIs. I worked on the entertainment page and learned how to incorporate external APIs into development.</p>
+        <a href="https://github.com/Google-SDS/final-project-east-triforce/tree/main?tab=readme-ov-file" target="_blank">View on GitHub</a>
       </div>
     </section>
 
-    <section class="section skills">
+    <section class="fade-in delay-3">
       <h2>Skills</h2>
       <ul>
-        <li>Languages: Java, JavaScript, Python</li>
-        <li>Frameworks: Node.js, Express</li>
-        <li>Tools: Git, GitHub, VS Code, Eclipse</li>
+        <li>JavaScript, Java, Python</li>
+        <li>APIs (Gemini, BigQuery, Google Maps)</li>
+        <li>Git/GitHub, VS Code, Eclipse</li>
+        <li>UI/UX Design, Team Collaboration, Problem Solving</li>
       </ul>
     </section>
+
+    <section class="fade-in delay-4">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:joshua@example.com">joshua@example.com</a></p>
+      <p>Location: Washington, DC</p>
+    </section>
   </main>
+
+  <footer class="fade-in delay-5">
+    <p>&copy; 2025 Joshua Veasy. All rights reserved.</p>
+  </footer>
 
   <script src="portfolio.js"></script>
 </body>
