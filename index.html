@@ -3,51 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joshua Veasy's Portfolio</title>
+  <title>Josh's Portfolio</title>
   <link rel="stylesheet" href="portfolio.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="fade-in">
-    <img src="Josh.jpg" alt="Joshua Veasy" class="profile-pic" />
-    <h1>Joshua Veasy</h1>
-    <p>Computer Science Major @ Howard University | Software Developer | Tech Exchange Alum | Musician</p>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="nav-logo">Josh</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <section class="fade-in delay-1">
-      <h2>About Me</h2>
-      <p>I’m a junior studying Computer Science at Howard University. As a TechExchange alum, member of NSBE and CodeHouse, and a volunteer at the Nashville Food Bank, I bring both technical skills and a drive to help others. My interests include software development, music, and exploring the intersections of tech and creativity.</p>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <img src="Josh.jpg" alt="Josh Profile Picture" class="profile-img" />
+    <h1>Hello, I'm Josh</h1>
+    <p>A passionate developer crafting engaging web experiences.</p>
+  </section>
 
-    <section class="fade-in delay-2">
-      <h2>Projects</h2>
-      <div class="card">
-        <h3>Spotsy</h3>
-        <p>An app that recommends entertainment and activities near your location, built using the Gemini and BigQuery APIs. I worked on the entertainment page and learned how to incorporate external APIs into development.</p>
-        <a href="https://github.com/Google-SDS/final-project-east-triforce/tree/main?tab=readme-ov-file" target="_blank">View on GitHub</a>
+  <!-- Projects Section -->
+  <section class="bubble-section" id="projects">
+    <h2>Projects</h2>
+    <div class="bubble-container">
+      <!-- Example Project Card -->
+      <div class="bubble-box">
+        <h3>Project One</h3>
+        <p>Description of your amazing project.</p>
       </div>
-    </section>
+      <div class="bubble-box">
+        <h3>Project Two</h3>
+        <p>Another great thing you've built.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="fade-in delay-3">
-      <h2>Skills</h2>
-      <ul>
-        <li>JavaScript, Java, Python</li>
-        <li>APIs (Gemini, BigQuery, Google Maps)</li>
-        <li>Git/GitHub, VS Code, Eclipse</li>
-        <li>UI/UX Design, Team Collaboration, Problem Solving</li>
-      </ul>
-    </section>
+  <!-- Skills Section -->
+  <section class="bubble-section" id="skills">
+    <h2>Skills</h2>
+    <div class="bubble-container">
+      <div class="bubble-box">JavaScript</div>
+      <div class="bubble-box">HTML5</div>
+      <div class="bubble-box">CSS3</div>
+      <div class="bubble-box">Git & GitHub</div>
+    </div>
+  </section>
 
-    <section class="fade-in delay-4">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:joshua@example.com">joshua@example.com</a></p>
-      <p>Location: Washington, DC</p>
-    </section>
-  </main>
+  <!-- Experience Section -->
+  <section class="bubble-section" id="experience">
+    <h2>Experience</h2>
+    <div class="bubble-container">
+      <div class="bubble-box">
+        <h3>Frontend Developer</h3>
+        <p>Worked on responsive UIs at XYZ Corp (2022–2023)</p>
+      </div>
+    </div>
+  </section>
 
-  <footer class="fade-in delay-5">
-    <p>&copy; 2025 Joshua Veasy. All rights reserved.</p>
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Josh. Built with love & vanilla JS.</p>
   </footer>
 
   <script src="portfolio.js"></script>

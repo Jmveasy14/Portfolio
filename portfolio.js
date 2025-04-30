@@ -1,63 +1,43 @@
-// Loader fade-out
-window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
-    loader.style.opacity = '0';
-    loader.style.transition = 'opacity 1s ease';
-    setTimeout(() => {
-      loader.style.display = 'none';
-    }, 1000);
+// Smooth scroll animation for nav links
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+    });
   });
   
-  // Bubbles Animation with gradient
-  const canvas = document.getElementById('bubbleCanvas');
-  const ctx = canvas.getContext('2d');
-  let bubbles = [];
+  // Animate sections on scroll using IntersectionObserver
+  const bubbles = document.querySelectorAll('.bubble-box');
   
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  
-  function createBubbles() {
-    bubbles = [];
-    for (let i = 0; i < 60; i++) {
-      bubbles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 10 + 5,
-        d: Math.random() * 2,
-        color: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.5)`
-      });
-    }
-  }
-  
-  function drawBubbles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < bubbles.length; i++) {
-      ctx.beginPath();
-      ctx.arc(bubbles[i].x, bubbles[i].y, bubbles[i].r, 0, Math.PI * 2, false);
-      ctx.fillStyle = bubbles[i].color;
-      ctx.fill();
-      bubbles[i].y -= bubbles[i].d;
-      if (bubbles[i].y < -bubbles[i].r) {
-        bubbles[i].y = canvas.height + bubbles[i].r;
-        bubbles[i].x = Math.random() * canvas.width;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
       }
-    }
-  }
-  
-  function animateBubbles() {
-    drawBubbles();
-    requestAnimationFrame(animateBubbles);
-  }
-  
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    createBubbles();
+    });
+  }, {
+    threshold: 0.2
   });
   
-  // Initialize
-  resizeCanvas();
-  createBubbles();
-  animateBubbles();
+  bubbles.forEach(bubble => {
+    observer.observe(bubble);
+  });
+  
+  // Basic contact form validation
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
+  
+    if (!name || !email || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+  
+    alert("Thanks for reaching out, Josh will reply soon!");
+    this.reset();
+  });
   
