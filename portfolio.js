@@ -1,260 +1,278 @@
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Preloader
-    setTimeout(function() {
-        document.querySelector('.loader-wrapper').classList.add('fade-out');
+document.addEventListener('DOMContentLoaded', () => {
+    // Loader Animation
+    setTimeout(() => {
+      document.querySelector('.loader-wrapper').classList.add('fade-out');
     }, 2000);
-
-    // Typed text effect
-    const typedTextElement = document.getElementById('typed-text');
-    const textArray = [
-        "Web Developer",
-        "UI/UX Designer",
-        "Front-end Engineer",
-        "Creative Coder"
-    ];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingDelay = 150;
-    let erasingDelay = 100;
-    let newTextDelay = 2000;
-
-    function typeEffect() {
-        const currentText = textArray[textIndex];
-        
-        if (isDeleting) {
-            typedTextElement.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-            typingDelay = erasingDelay;
-        } else {
-            typedTextElement.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-            typingDelay = 150;
-        }
-
-        if (!isDeleting && charIndex === currentText.length) {
-            isDeleting = true;
-            typingDelay = newTextDelay;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % textArray.length;
-        }
-
-        setTimeout(typeEffect, typingDelay);
-    }
-
-    setTimeout(typeEffect, 2500);
-
-    // Custom cursor
+  
+    // Custom Cursor
     const cursor = document.querySelector('.cursor');
     
-    document.addEventListener('mousemove', function(e) {
+    if (window.innerWidth > 1024) {
+      document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
-    });
-
-    document.addEventListener('click', function() {
-        cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
-        setTimeout(function() {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        }, 100);
-    });
-
-    // Mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuToggle.addEventListener('click', function() {
-        menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking a nav link
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+      });
+    
+      // Add hover effect on clickable elements
+      const clickables = document.querySelectorAll('a, button, .btn, .project-card, .skill-card');
+      clickables.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+          cursor.style.opacity = '0.5';
         });
-    });
-
-    // Header scroll effect
+        
+        element.addEventListener('mouseleave', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+          cursor.style.opacity = '0.6';
+        });
+      });
+    }
+  
+    // Typewriter Effect
+    const texts = ["Web Developer", "UI/UX Designer", "Frontend Specialist", "Creative Coder"];
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+    
+    function type() {
+      if (count === texts.length) {
+        count = 0;
+      }
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+      
+      document.getElementById('typed-text').textContent = letter;
+      
+      if (letter.length === currentText.length) {
+        setTimeout(() => {
+          index = 0;
+          count++;
+          setTimeout(type, 500);
+        }, 2000);
+      } else {
+        setTimeout(type, 100);
+      }
+    }
+    
+    setTimeout(type, 2000);
+  
+    // Navbar Scroll Effect
     const header = document.querySelector('header');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Active nav link based on scroll position
+    const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('section');
     
-    window.addEventListener('scroll', function() {
-        let current = '';
+    window.addEventListener('scroll', () => {
+      // Add background to navbar on scroll
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Highlight active nav link
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
         
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (scrollY >= (sectionTop - sectionHeight / 3)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').slice(1) === current) {
-                item.classList.add('active');
-            }
-        });
+        if (window.scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active');
+        }
+      });
     });
-
-    // Animate progress bars when in viewport
-    const progressBars = document.querySelectorAll('.progress');
+  
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
     
-    function animateProgressBars() {
-        progressBars.forEach(progress => {
-            const width = progress.getAttribute('data-width');
-            progress.style.width = width;
-        });
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinksContainer.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a nav link on mobile
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinksContainer.classList.contains('active')) {
+          menuToggle.classList.remove('active');
+          navLinksContainer.classList.remove('active');
+        }
+      });
+    });
+  
+    // Scroll Animations
+    const animateElements = document.querySelectorAll('.animate-in');
+    
+    function checkScroll() {
+      animateElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('animated');
+        }
+      });
     }
-
-    // Project filtering
+    
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // Check on load
+  
+    // Project Filtering
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
     filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filter === 'all') {
-                    card.style.display = 'block';
-                } else if (card.getAttribute('data-category') === filter) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-                
-                // Add animation
-                setTimeout(() => {
-                    card.classList.add('animated');
-                }, 100);
-            });
-        });
-    });
-
-    // Form label animation (already handled in CSS)
-    
-    // Handle form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && subject && message) {
-                // Success message - In a real app, you would send this data to a server
-                alert('Message sent successfully! I will get back to you soon.');
-                contactForm.reset();
-            } else {
-                alert('Please fill in all fields');
-            }
-        });
-    }
-
-    // Scroll animation
-    const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-    
-    function checkAnimateElements() {
-        const triggerBottom = window.innerHeight * 0.85;
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
         
-        animateOnScrollElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            
-            if (elementTop < triggerBottom) {
-                element.classList.add('animated');
-            }
+        const filterValue = btn.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+          // Show all cards if filter is 'all', otherwise show only matching cards
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 300);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
         });
+      });
+    });
+  
+    // Initialize Progress Bars
+    const progressBars = document.querySelectorAll('.progress');
+    
+    function initProgressBars() {
+      progressBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 500);
+      });
     }
-
-    // Add animate-on-scroll class to elements
+  
+    // Trigger progress bars when skills section is in view
     const skillsSection = document.querySelector('.skills');
-    const skillCards = document.querySelectorAll('.skill-card');
+    
+    function checkSkillsInView() {
+      const sectionTop = skillsSection.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (sectionTop < windowHeight - 200) {
+        initProgressBars();
+        window.removeEventListener('scroll', checkSkillsInView);
+      }
+    }
+    
+    window.addEventListener('scroll', checkSkillsInView);
+    checkSkillsInView(); // Check on load
+  
+    // Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          subject: document.getElementById('subject').value,
+          message: document.getElementById('message').value
+        };
+        
+        // Here you would typically send the data to a server
+        // For demonstration purposes, just show a success message
+        alert('Thanks for your message! I\'ll get back to you soon.');
+        contactForm.reset();
+      });
+    }
+  
+    // Animate project cards on scroll
     const projectSection = document.querySelector('.projects');
-    const projectFilters = document.querySelector('.project-filters');
+    
+    function animateProjectCards() {
+      const projectTop = projectSection.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (projectTop < windowHeight - 200) {
+        projectCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.animation = `fadeInUp 0.6s forwards ${index * 0.1}s`;
+          }, 300);
+        });
+        window.removeEventListener('scroll', animateProjectCards);
+      }
+    }
+    
+    window.addEventListener('scroll', animateProjectCards);
+    animateProjectCards(); // Check on load
+  
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerHeight = header.offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  
+    // Add parallax effect to hero section
+    const hero = document.querySelector('.hero');
+    
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition < window.innerHeight) {
+        hero.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
+      }
+    });
+  
+    // Reveal animations for about section
+    const aboutSection = document.querySelector('.about');
     const aboutContent = document.querySelector('.about-content');
     
-    skillCards.forEach(card => card.classList.add('animate-on-scroll'));
-    projectCards.forEach(card => card.classList.add('animate-on-scroll'));
-    aboutContent.classList.add('animate-on-scroll');
-    projectFilters.classList.add('animate-on-scroll');
-    
-    if (skillsSection) {
-        const sectionHeader = skillsSection.querySelector('.section-header');
-        sectionHeader.classList.add('animate-on-scroll');
+    function revealAboutSection() {
+      const aboutTop = aboutSection.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (aboutTop < windowHeight - 200) {
+        aboutContent.style.opacity = '1';
+        window.removeEventListener('scroll', revealAboutSection);
+      }
     }
     
-    if (projectSection) {
-        const sectionHeader = projectSection.querySelector('.section-header');
-        sectionHeader.classList.add('animate-on-scroll');
-    }
-
-    // Initialize animations
-    window.addEventListener('scroll', function() {
-        checkAnimateElements();
-        if (isElementInViewport(document.querySelector('.skills'))) {
-            animateProgressBars();
-        }
-    });
-
-    // Trigger once on load
-    checkAnimateElements();
+    aboutContent.style.opacity = '0';
+    aboutContent.style.transition = 'opacity 1s ease';
     
-    // Add parallax effect to hero section
-    window.addEventListener('mousemove', function(e) {
-        const hero = document.querySelector('.hero');
-        const moveX = (e.clientX - window.innerWidth / 2) / 25;
-        const moveY = (e.clientY - window.innerHeight / 2) / 25;
-        
-        hero.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
-    });
-
-    // Utility: Check if element is in viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.bottom >= 0
-        );
-    }
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-});
-
+    window.addEventListener('scroll', revealAboutSection);
+    revealAboutSection(); // Check on load
+  });
