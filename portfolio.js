@@ -197,8 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = {
           name: document.getElementById('name').value,
           email: document.getElementById('email').value,
-          subject: document.getElementById('subject').value,
-          message: document.getElementById('message').value
+          subject: document.getElementById('subject').value
         };
         
         // Here you would typically send the data to a server
