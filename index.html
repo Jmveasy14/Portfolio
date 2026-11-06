@@ -34,6 +34,7 @@
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -48,7 +49,7 @@
                 <div class="typewriter">
                     <span id="typed-text"></span><span class="cursor-blink">|</span>
                 </div>
-                <p class="fade-in">Creative, tech-savvy, and purpose-driven computer science major focused on creating new technologies that inspire people to build relationships across the globe and collaborate to make positive change.</p>
+                <p class="fade-in">Howard University Computer Science graduate and Google Tech Exchange scholar. I build data pipelines, LLM agents, and full-stack apps that turn messy market and product data into decisions people can actually use.</p>
                 <div class="hero-btns">
                     <a href="#projects" class="btn primary-btn">View My Work</a>
                     <a href="#contact" class="btn secondary-btn">Get In Touch</a>
@@ -67,10 +68,10 @@
                     <img src="Josh.jpg" alt="Josh's Profile" class="profile-pic">
                     <div class="orbit">
                         <div class="orbit-circle">
-                            <div class="tech-icon"><i class="fab fa-html5"></i></div>
-                            <div class="tech-icon"><i class="fab fa-css3-alt"></i></div>
                             <div class="tech-icon"><i class="fab fa-python"></i></div>
                             <div class="tech-icon"><i class="fab fa-react"></i></div>
+                            <div class="tech-icon"><i class="fab fa-js"></i></div>
+                            <div class="tech-icon"><i class="fab fa-aws"></i></div>
                         </div>
                     </div>
                 </div>
@@ -97,9 +98,17 @@
             </div>
             <div class="about-text">
                 <h3>My Journey</h3>
-                <p>My journey into tech has been shaped by curiosity, adaptability, and a deep desire to solve real-world problems. Growing up across six different countries gave me a global perspective and a strong appreciation for how technology can connect people. As a junior computer science major and Google Tech Exchange alum, I’ve built projects like Spotsy, a location-based recommendation app powered by Gemini and BigQuery APIs, which helped me grow my skills in full-stack development and working with cloud technologies. Through organizations like NSBE and CodeHouse, I’ve found a supportive community that continues to inspire me to build inclusive and impactful solutions.</p>
+                <p>I earned a B.S. in Computer Science from Howard University in May 2026. Growing up across six countries gave me a global perspective and a drive to solve real-world problems with software. As a Software Engineer Intern at LucidTrade, I built an automated market-data pipeline and FitScore, an LLM agent that ranks assets for portfolio managers. At Google Tech Exchange I was one of 170 scholars nationwide, and as a CodeHouse Scholar I spent four years connecting HBCU talent with top tech companies. I also hold the AWS Certified Cloud Practitioner credential (April 2025).</p>
                 
                 <div class="about-info">
+                    <div class="info-item">
+                        <span class="info-title">Education:</span>
+                        <span class="info-value">B.S. Computer Science, Howard University</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Graduated:</span>
+                        <span class="info-value">May 2026</span>
+                    </div>
                     <div class="info-item">
                         <span class="info-title">Email:</span>
                         <span class="info-value">jmveasy14@gmail.com</span>
@@ -108,15 +117,63 @@
                         <span class="info-title">Location:</span>
                         <span class="info-value">Washington, D.C.</span>
                     </div>
-    
                 </div>
                 
                 <a href="Joshua_Veasy_Resume.pdf" 
                 class="btn primary-btn" 
-                download="Joshua_Veasy_Resume.pdf">
+                download="Joshua_Veasy_Resume_2026.pdf">
                 Download Resume
                 </a>
             </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="section-header">
+            <h2>Work <span class="highlight">Experience</span></h2>
+            <div class="underline"></div>
+        </div>
+        <div class="experience-container">
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Software Engineer Intern</h3>
+                        <p class="experience-org">LucidTrade LLC · Auburn, AL</p>
+                    </div>
+                    <span class="experience-dates">May 2025 – Sep 2025</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Built an automated pipeline that ingests and ranks 1,000+ equities, futures, and options tickers in under 20 minutes, replacing manual spreadsheet screening as a first-pass filter for Portfolio Managers.</li>
+                    <li>Wrote Python modules applying PCA and ARIMA to OpenBB market data and SEC EDGAR filings to support risk assessment and trade idea generation.</li>
+                    <li>Built FitScore, an LLM agent that scores each asset 0–100 with a written rationale from market data, ARIMA metrics, and factor exposures, plus a Dash dashboard on Parquet and DuckDB for fast factor analytics.</li>
+                    <li>Delivered the pipeline and FitScore dashboard in two-week agile sprints with sprint planning and daily standups.</li>
+                </ul>
+            </article>
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Google Tech Exchange Scholar</h3>
+                        <p class="experience-org">Google · Mountain View, CA</p>
+                    </div>
+                    <span class="experience-dates">Jan 2024 – Jun 2024</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Selected as one of 170 scholars nationwide for Google's 6-month Tech Exchange program, with live coding instruction and direct code reviews from Google engineers.</li>
+                    <li>Co-authored the PRD and design prototype for FitBeat, a workout app concept matching music tempo to the user's pace; defined personas and P0/P1 requirements for a 4-person team.</li>
+                </ul>
+            </article>
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>CodeHouse Scholar</h3>
+                        <p class="experience-org">CodeHouse · 4-year tech leadership program</p>
+                    </div>
+                    <span class="experience-dates">Aug 2022 – May 2026</span>
+                </div>
+                <ul class="experience-list">
+                    <li>Selected for a 4-year tech leadership program connecting HBCU talent with top tech companies.</li>
+                </ul>
+            </article>
         </div>
     </section>
 
@@ -127,69 +184,57 @@
         </div>
         <div class="skills-container">
             <div class="skills-category">
-                <h3>Front-End</h3>
-                <div class="skill-cards">
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                        <h4>HTML5</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-                        <h4>CSS3</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fab fa-js"></i></div>
-                        <h4>JavaScript</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
-                        <h4>Bootstrap</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="50%"></div>
-                        </div>
-                    </div>
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>TypeScript</span>
+                    <span>JavaScript</span>
+                    <span>SQL</span>
+                    <span>C++</span>
+                    <span>Java</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
                 </div>
             </div>
             <div class="skills-category">
-                <h3>Back-End</h3>
-                <div class="skill-cards">
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fa-brands fa-aws"></i></div>
-                        <h4>Amazon Web Services</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="70%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-database"></i></div>
-                        <h4>SQL</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="70%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fab fa-python"></i></div>
-                        <h4>Python</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-server"></i></div>
-                        <h4>APIs</h4>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="80%"></div>
-                        </div>
-                    </div>
+                <h3>Frameworks &amp; Architecture</h3>
+                <div class="skill-tags">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>REST APIs</span>
+                    <span>Dash</span>
+                    <span>JUnit</span>
+                    <span>Agile/Scrum</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>AI / LLM</h3>
+                <div class="skill-tags">
+                    <span>Gemini API</span>
+                    <span>Claude</span>
+                    <span>Cursor</span>
+                    <span>ChatGPT</span>
+                    <span>Google Antigravity</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Data &amp; Tools</h3>
+                <div class="skill-tags">
+                    <span>Git</span>
+                    <span>Docker</span>
+                    <span>Google BigQuery</span>
+                    <span>DuckDB</span>
+                    <span>Parquet</span>
+                    <span>PostgreSQL</span>
+                    <span>Supabase</span>
+                    <span>Pandas</span>
+                    <span>OpenBB</span>
+                    <span>Linux</span>
+                    <span>Unix</span>
+                    <span>VS Code</span>
+                    <span>Netlify</span>
+                    <span>AWS (Cloud Practitioner, Apr 2025)</span>
                 </div>
             </div>
         </div>
@@ -209,69 +254,59 @@
         </div>
         -->
         <div class="projects-container">
-            <div class="project-card" data-category="app design">
-                <div class="project-img">
-                    <img src="images/spotsy.png" alt="E-commerce Website" width="600" height="400">
-                    <div class="project-overlay">
-                        <div class="project-links">
-                            <a href="https://docs.google.com/presentation/d/1D5yJgFHkXH2l1MqUzAauw2vDh05Yyme3xRuptRJzRoc/edit?slide=id.p#slide=id.p" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Spotsy</h3>
-                    <p>The city guide you didn't know you needed!</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>CSS</span>
-                        <span>BigQuery</span>
-                        <span>Places API</span>
-                        <span>Gemini API</span>
-                    </div>
-                </div>
-            </div>
             <div class="project-card" data-category="app">
-                <div class="project-img">
-                    <img src="images/jarvis.png" alt="E-commerce Website" width="600" height="400">
-                    <div class="project-overlay">
-                        <div class="project-links">
-                            <a href="https://github.com/Jmveasy14/ChatBot-Project/tree/main" class="project-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
+                <div class="project-img project-placeholder">
+                    <i class="fas fa-robot"></i>
                 </div>
                 <div class="project-info">
-                    <h3>J.A.R.V.I.S ChatBot</h3>
-                    <p>A chatbot built using Natural Language Toolkit (NLTK) in Python</p>
+                    <h3>Amazon FTR Smart Return Inspection</h3>
+                    <p>Senior capstone hardware-integrated prototype: Kinova robotic arms and AI vision on a Supabase backend inspect returned items and show results in a UI. Demonstrated end-to-end on real hardware; placed 4th among all senior capstone teams. Includes a typed TypeScript utility that converts raw hardware confidence scores into UI statuses so anomalous sensor readings never fail silently.</p>
                     <div class="project-tags">
-                        <span>Python</span>
-                        <span>NLTK</span>
+                        <span>TypeScript</span>
+                        <span>Supabase</span>
+                        <span>AI Vision</span>
                     </div>
                 </div>
             </div>
             <div class="project-card" data-category="design">
                 <div class="project-img">
-                    <img src="images/music.png" alt="VibeCast
-">
+                    <img src="images/music.png" alt="VibeCast">
                     <div class="project-overlay">
                         <div class="project-links">
-                            <a href="https://github.com/Jmveasy14/Vibecast" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/Jmveasy14/Vibecast" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="project-info">
                     <h3>VibeCast</h3>
-                    <p>Smart music recommender that analyzes your Spotify playlists to understand their underlying mood and vibe. *</p>
+                    <p>Full-stack AI music recommender that sends 50+ Spotify playlist tracks to Gemini and returns mood-based song and activity recommendations in under 2 seconds. Node.js/Express backend with Spotify OAuth 2.0 (95%+ cover art retrieval) and a responsive React frontend.</p>
                     <div class="project-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Gemini API</span>
-                        <span>Spotify Web API</span>
+                        <span>React</span>
                         <span>Node.js</span>
                         <span>Express</span>
-                        <span>React</span>
-                        <span>Axios</span>
-                        <span>Vercel</span>
-                        
+                        <span>Spotify API</span>
+                        <span>Gemini API</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="app design">
+                <div class="project-img">
+                    <img src="images/spotsy.png" alt="Spotsy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="https://docs.google.com/presentation/d/1D5yJgFHkXH2l1MqUzAauw2vDh05Yyme3xRuptRJzRoc/edit?slide=id.p#slide=id.p" class="project-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Spotsy</h3>
+                    <p>Local discovery app on the Google Places and Gemini APIs. Cut search latency 35% with optimized BigQuery calls and improved query performance 40% with PostgreSQL indexing.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>BigQuery</span>
+                        <span>PostgreSQL</span>
+                        <span>Places API</span>
+                        <span>Gemini API</span>
                     </div>
                 </div>
             </div>
@@ -312,7 +347,7 @@
                         </div>
                         <div class="info-text">
                             <h4>Phone</h4>
-                            <p>+1 (615)663-4113</p>
+                            <p>(615) 663-4113</p>
                         </div>
                     </div>
                 </div>
@@ -335,7 +370,7 @@
                 <span class="highlight">Portfolio</span>
             </div>
             <div class="footer-text">
-                <p>&copy; 2025 Joshua Veasy. All Rights Reserved.</p>
+                <p>&copy; 2026 Joshua Veasy. All Rights Reserved.</p>
             </div>
             <div class="scroll-top">
                 <a href="#home"><i class="fas fa-chevron-up"></i></a>

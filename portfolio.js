@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     
       // Add hover effect on clickable elements
-      const clickables = document.querySelectorAll('a, button, .btn, .project-card, .skill-card');
+      const clickables = document.querySelectorAll('a, button, .btn, .project-card, .skill-card, .experience-card');
       clickables.forEach(element => {
         element.addEventListener('mouseenter', () => {
           cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     // Typewriter Effect
-    const texts = ["Web Developer", "UI/UX Designer", "Frontend Specialist", "Creative Coder"];
+    const texts = ["Software Engineer", "Full-Stack Developer", "Python Engineer", "Howard CS Graduate"];
     let count = 0;
     let index = 0;
     let currentText = "";
